@@ -252,7 +252,7 @@ def info_page():
 
     st.markdown("## Contribution")
     st.write(
-        "Diya\n"
+        "**Diya** - "
         "I was responsible for the entire model-building process (handling missing values, feature engineering "
         "(categorical transformations, feature selection, and removal of low-correlation variables), balancing the "
         "dataset using techniques like SMOTE and class weights, hyperparameter tuning, and implementing the Random "
@@ -264,17 +264,17 @@ def info_page():
     )
 
     st.write(
-        "Ken\n"
+        "**Ken** - "
         "I helped with the feature engineering, and helped Bill with the UI integration on Streamlit.\n"
     )
 
     st.write(
-        "Chris\n"
+        "**Chris** - "
         "I helped with the project check-in, feature engineering, and presentation.\n"
     )
 
     st.write(
-        "Bill\n"
+        "**Bill** - "
         "I was responsible for conducting the initial literature review, which helped us understand the background of our "
         "project. I also worked on portions of the data preprocessing to ensure it was ready for analysis and compatible "
         "with our model. Additionally, I focused on the user interface integration with our trained model on Streamlit to "
@@ -282,7 +282,7 @@ def info_page():
     )
 
     st.write(
-        "Priyanshi\n"
+        "**Priyanshi** - "
         "Diya and I took over more of a project manager role throughout the quarter and helped ensure that tasks were "
         "being completed and done. I also was responsible for our project proposal (including a literature review and "
         "formatting things into markdown), was a significant contributor to the project check-in, was an active "
@@ -290,7 +290,7 @@ def info_page():
     )
 
     st.write(
-        "Maithreyi\n"
+        "**Maithreyi** - "
         "I was primarily responsible for data preprocessing and conducting exploratory data analysis (EDA) on the dataset. "
         "This involved analyzing skewness through histograms, pair plots, correlation matrices, and Q-Q plots, as well as "
         "creating multiple graphs to visualize key insights. Additionally, I contributed to the planning of the project's "
@@ -299,14 +299,14 @@ def info_page():
     )
 
     st.write(
-        "Nissi\n"
+        "**Nissi** - "
         "Worked primarily on data preparation, identifying, evaluating, and preprocessing datasets to ensure optimal training "
         "for our model. I helped with the project proposal, check-in, and project planning stages, and also conducted a "
         "literature review to strengthen our methodology.\n"
     )
 
     st.write(
-        "Sheda\n"
+        "**Sheda** - "
         "I assisted with the UI, the final paper, the presentation, the proposal, and the check-in. I also made the Heatmap. "
         "I assisted in the original development of the project idea, and helped come up with new ideas when our original one "
         "proved too challenging.\n"
