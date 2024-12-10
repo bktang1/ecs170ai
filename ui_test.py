@@ -70,7 +70,7 @@ def input_form_page():
 
     age = st.number_input("Age", min_value=0, max_value=120, value=20, step=1)
     bmi = st.number_input("Body Mass Index (BMI)", min_value=0.0, max_value=100.0, value=25.0, step=0.1)
-    avg_glucose = st.number_input("Average Glucose Level (mg/dL)", min_value=0.0, max_value=500.0, value=100.0, step=0.1)
+    avg_glucose_level = st.number_input("Average Glucose Level (mg/dL)", min_value=0.0, max_value=500.0, value=100.0, step=0.1)
 
     hypertension_option = st.selectbox("History of Hypertension (High Blood Pressure)", ["No", "Yes"])
     hypertension = 0 if hypertension_option == "No" else 1
@@ -100,15 +100,17 @@ def input_form_page():
 
     # Save inputs
     user_data = pd.DataFrame({
-        'age': [age],
-        'avg_glucose_level': [avg_glucose],
-        'bmi': [bmi],
         'gender': [gender],
+        'age': [age],
         'hypertension': [hypertension],
         'heart_disease': [heart_disease],
+        #ever_married
         'work_type': [work_type],
         'Residence_type': [Residence_type],
+        'avg_glucose_level': [avg_glucose_level],
+        'bmi': [bmi],
         'smoking_status': [smoking_status]
+        #stroke
     })
 
     if st.button("Submit"):
