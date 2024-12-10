@@ -79,7 +79,7 @@ def input_form_page():
     heart_disease = 0 if heart_disease_option == "No" else 1
     
     residence_type_option = st.selectbox("Residence Type", ["Urban", "Rural"])
-    residence_type = 0 if residence_type_option == "Urban" else 1
+    Residence_type = 0 if residence_type_option == "Urban" else 1
     
     work_type_option = st.selectbox("Work Type", ["Child", "Never worked", "Self-Employed", "Private", "Government employed"])
     work_type = {
@@ -107,7 +107,7 @@ def input_form_page():
         'hypertension': [hypertension],
         'heart_disease': [heart_disease],
         'work_type': [work_type],
-        'Residence_type': [residence_type],
+        'Residence_type': [Residence_type],
         'smoking_status': [smoking_status]
     })
 
