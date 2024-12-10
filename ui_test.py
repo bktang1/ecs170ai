@@ -133,7 +133,7 @@ def risk_analysis_page():
     try:
     # Validate and correct types
         user_data = user_data.astype({
-            'age': 'float',
+            'age': 'int',
             'avg_glucose_level': 'float',
             'bmi': 'float',
             'gender': 'int',
