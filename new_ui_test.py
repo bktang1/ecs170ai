@@ -250,7 +250,7 @@ def info_page():
         "- **Model and UI compatibility**: The model was expecting more inputs than the UI was providing. We fixed this by changing how the preprocessor was working and removing the one-hot encoding we had initially put in the model."
     )
 
-    st.markdown("## Contribution")
+    st.markdown("## Contributions")
     st.write(
         "**Diya** - "
         "I was responsible for the entire model-building process (handling missing values, feature engineering "
