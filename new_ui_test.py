@@ -251,7 +251,7 @@ def info_page():
     )
 
     st.image(
-        "https://imgur.com/pPsfp49", 
+        "method.png", 
         caption="Methodology",
         use_column_width=True
     )
