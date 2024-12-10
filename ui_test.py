@@ -68,7 +68,7 @@ def input_form_page():
     gender_option = st.radio("Gender", ["Male", "Female"])
     gender = 0 if gender_option == "Male" else 1
 
-    age = st.number_input("Age", min_value=0, max_value=120, value=20, step=1)
+    age = float(st.number_input("Age", min_value=0, max_value=120, value=20, step=1))
     bmi = st.number_input("Body Mass Index (BMI)", min_value=0.0, max_value=100.0, value=25.0, step=0.1)
     avg_glucose = st.number_input("Average Glucose Level (mg/dL)", min_value=0.0, max_value=500.0, value=100.0, step=0.1)
 
