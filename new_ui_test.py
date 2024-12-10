@@ -61,7 +61,7 @@ def inject_custom_css():
 # Welcome page
 def welcome_page():
     #st.title(":blue[Vitaly - Stroke Risk Assessment and Personalized Health Plan]")
-    st.markdown('<h1 style="text-align: center; font-size:30px; color:#1fe0c3;">Stroke Risk Assessment and Personalized Health Plan</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 style="text-align: center; font-size:30px; color:#1fe0c3;">Vitaly - Stroke Risk Assessment and Personalized Health Plan</h1>', unsafe_allow_html=True)
     #st.write("Understand your stroke risk and get personalized health plans.")
     st.markdown(
     '<p style="text-align: center; font-size: 18px;">Understand your stroke risk and get personalized health plans.</p>',
