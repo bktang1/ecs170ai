@@ -166,7 +166,7 @@ def recommendation_page():
     prediction_proba = st.session_state.get('prediction_proba', None)
     prediction = st.session_state.get('prediction', None)
     st.title("Personalized Health Plan")
-    if prediction[0] == 1:
+    if prediction == 1:
         st.write("Based on your response, here are some recommendations to lower your stroke risk.")
         user_data = st.session_state.user_data
         st.subheader("Lifestyle Recommendations")

@@ -121,14 +121,10 @@ def risk_analysis_page():
     user_data = st.session_state.user_data
     
     # Preprocess user input
-    user_data = user_data.reindex(columns=['age', 'avg_glucose_level', 'bmi', 'gender', 'hypertension', 'heart_disease', 'work_type', 'Residence_type', 'smoking_status'])
+    user_data = user_data.reindex(columns=['age', 'avg_glucose_level', 'bmi', 'gender', 'work_type', 'Residence_type', 'smoking_status', 'hypertension', 'heart_disease'])
     user_data = user_data.fillna(0)  # Fill NaN values with 0 or other suitable
-    required_columns = ['age', 'avg_glucose_level', 'bmi', 'gender', 'hypertension', 'heart_disease', 'work_type', 'Residence_type', 'smoking_status']
+    required_columns = ['age', 'avg_glucose_level', 'bmi', 'gender', 'work_type', 'Residence_type', 'smoking_status', 'hypertension', 'heart_disease']
     user_data = user_data[required_columns]  # Remove any extraneous columns
-    st.write("Expected columns:", preprocessor.get_feature_names_out())
-    st.write("Provided columns:", user_data.columns.tolist())
-    # Debugging: Log the state of user_data
-    st.write("User data before preprocessing:", user_data)
 
     # Preprocess user input
     try:
@@ -138,32 +134,18 @@ def risk_analysis_page():
             'avg_glucose_level': 'float',
             'bmi': 'float',
             'gender': 'int',
-            'hypertension': 'int',
-            'heart_disease': 'int',
             'work_type': 'int',
             'Residence_type': 'int',
-            'smoking_status': 'int'
+            'smoking_status': 'int',
+            'hypertension': 'int',
+            'heart_disease': 'int'
         })
-
-        # Debugging: Ensure data matches expected input
-        st.write("Validated user data:", user_data)
-
         # Transform data
         user_transformed = preprocessor.transform(user_data)
-        st.write("Transformed user data:", user_transformed)
 
     except Exception as e:
         st.error(f"Error during transformation: {e}")
-    '''try:
-        user_transformed = preprocessor.transform(user_data)
-    except Exception as e:
-        st.error(f"Error during transformation: {e}")
-        return'''
-    
-    # Debugging: Log the transformed data
-    st.write("Transformed user data:", user_transformed)
 
-    #    user_transformed = preprocessor.transform(user_data)
     user_transformed_df = pd.DataFrame(user_transformed.toarray() if hasattr(user_transformed, 'toarray') else user_transformed)
     
     # Predict stroke risk
