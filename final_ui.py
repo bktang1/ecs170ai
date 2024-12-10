@@ -121,9 +121,9 @@ def risk_analysis_page():
     user_data = st.session_state.user_data
     
     # Preprocess user input
-    user_data = user_data.reindex(columns=['age', 'avg_glucose_level', 'bmi', 'gender', 'hypertension', 'heart_disease', 'work_type', 'Residence_type', 'smoking_status'])
+    user_data = user_data.reindex(columns=['age', 'avg_glucose_level', 'bmi', 'gender', 'work_type', 'Residence_type', 'smoking_status', 'hypertension', 'heart_disease'])
     user_data = user_data.fillna(0)  # Fill NaN values with 0 or other suitable
-    required_columns = ['age', 'avg_glucose_level', 'bmi', 'gender', 'hypertension', 'heart_disease', 'work_type', 'Residence_type', 'smoking_status']
+    required_columns = ['age', 'avg_glucose_level', 'bmi', 'gender', 'work_type', 'Residence_type', 'smoking_status', 'hypertension', 'heart_disease']
     user_data = user_data[required_columns]  # Remove any extraneous columns
     st.write("Expected columns:", preprocessor.get_feature_names_out())
     st.write("Provided columns:", user_data.columns.tolist())
