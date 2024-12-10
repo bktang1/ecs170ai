@@ -68,7 +68,7 @@ def input_form_page():
     gender_option = st.radio("Gender", ["Male", "Female"])
     gender = 0 if gender_option == "Male" else 1
 
-    age = st.number_input("Age", min_value=0.0, max_value=120.0, value=20.0, step=1.0)
+    age = st.number_input("Age", min_value=0, max_value=120, value=20, step=1)
     bmi = st.number_input("Body Mass Index (BMI)", min_value=0.0, max_value=100.0, value=25.0, step=0.1)
     avg_glucose = st.number_input("Average Glucose Level (mg/dL)", min_value=0.0, max_value=500.0, value=100.0, step=0.1)
 
@@ -131,10 +131,33 @@ def risk_analysis_page():
 
     # Preprocess user input
     try:
+    # Validate and correct types
+        user_data = user_data.astype({
+            'age': 'float',
+            'avg_glucose_level': 'float',
+            'bmi': 'float',
+            'gender': 'int',
+            'hypertension': 'int',
+            'heart_disease': 'int',
+            'work_type': 'int',
+            'Residence_type': 'int',
+            'smoking_status': 'int'
+        })
+
+        # Debugging: Ensure data matches expected input
+        st.write("Validated user data:", user_data)
+
+        # Transform data
+        user_transformed = preprocessor.transform(user_data)
+        st.write("Transformed user data:", user_transformed)
+
+    except Exception as e:
+        st.error(f"Error during transformation: {e}")
+    '''try:
         user_transformed = preprocessor.transform(user_data)
     except Exception as e:
         st.error(f"Error during transformation: {e}")
-        return
+        return'''
     
     # Debugging: Log the transformed data
     st.write("Transformed user data:", user_transformed)
