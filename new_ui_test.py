@@ -64,7 +64,7 @@ def welcome_page():
     st.markdown('<h1 style="text-align: center; font-family:Bubblegum Sans; font-size:30px; color:#1fe0c3;">Stroke Risk Assessment and Personalized Health Plan</h1>', unsafe_allow_html=True)
     #st.write("Understand your stroke risk and get personalized health plans.")
     st.markdown(
-    '<p style="text-align: center; font-family:Bubblegum Sans; font-size: 18px;">Understand your stroke risk and get personalized health plans.</p>',
+    '<p style="text-align: center; font-family: Arial; font-size: 18px;">Understand your stroke risk and get personalized health plans.</p>',
     unsafe_allow_html=True
     )
     if st.button("Start Assessment"):
