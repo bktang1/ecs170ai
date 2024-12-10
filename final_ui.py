@@ -125,8 +125,6 @@ def risk_analysis_page():
     user_data = user_data.fillna(0)  # Fill NaN values with 0 or other suitable
     required_columns = ['age', 'avg_glucose_level', 'bmi', 'gender', 'work_type', 'Residence_type', 'smoking_status', 'hypertension', 'heart_disease']
     user_data = user_data[required_columns]  # Remove any extraneous columns
-    st.write("Expected columns:", preprocessor.get_feature_names_out())
-    st.write("Provided columns:", user_data.columns.tolist())
 
     # Preprocess user input
     try:
@@ -144,12 +142,10 @@ def risk_analysis_page():
         })
         # Transform data
         user_transformed = preprocessor.transform(user_data)
-        st.write("Transformed user data:", user_transformed)
 
     except Exception as e:
         st.error(f"Error during transformation: {e}")
 
-    #    user_transformed = preprocessor.transform(user_data)
     user_transformed_df = pd.DataFrame(user_transformed.toarray() if hasattr(user_transformed, 'toarray') else user_transformed)
     
     # Predict stroke risk
