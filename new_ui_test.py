@@ -250,6 +250,11 @@ def info_page():
         "- **Model and UI compatibility**: The model was expecting more inputs than the UI was providing. We fixed this by changing how the preprocessor was working and removing the one-hot encoding we had initially put in the model."
     )
 
+    st.image(
+        "https://imgur.com/pPsfp49", 
+        caption="Methodology",
+        use_column_width=True
+    )
 
     col1, col2 = st.columns(2)
     # Back Button
