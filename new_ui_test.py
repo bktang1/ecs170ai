@@ -36,6 +36,12 @@ def inject_custom_css():
             color: #4CAF50;
         }
 
+        .stButton {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        }
+
         .stButton > button {
             font-size: 18px;
             background-color: #007BFF;
@@ -57,6 +63,10 @@ def welcome_page():
     #st.title(":blue[Stroke Risk Assessment and Personalized Health Plan]")
     st.markdown('<h1 style="text-align: center; font-family:Bubblegum Sans; font-size:30px; color:#1fe0c3;">Stroke Risk Assessment and Personalized Health Plan</h1>', unsafe_allow_html=True)
     st.write("Understand your stroke risk and get personalized health plans.")
+    st.markdown(
+    '<p style="text-align: center; font-family: Arial; font-size: 18px;">Understand your stroke risk and get personalized health plans.</p>',
+    unsafe_allow_html=True
+    )
     if st.button("Start Assessment"):
         st.session_state.page = "input_form"
 
