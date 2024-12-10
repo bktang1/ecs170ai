@@ -67,10 +67,15 @@ def welcome_page():
     '<p style="text-align: center; font-family: Arial; font-size: 18px;">Understand your stroke risk and get personalized health plans.</p>',
     unsafe_allow_html=True
     )
-    if st.button("Start Assessment"):
-        st.session_state.page = "input_form"
-    elif st.button("Info"):
-        st.session_state.page = "info"
+    col1, col2 = st.columns(2)
+
+    with col1:
+        if st.button("Start Assessment"):
+            st.session_state.page = "input_form"
+    
+    with col2:
+        if st.button("Info"):
+            st.session_state.page = "info"
 
 # Input Form Page
 def input_form_page():
