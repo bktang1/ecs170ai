@@ -136,11 +136,11 @@ def risk_analysis_page():
             'avg_glucose_level': 'float',
             'bmi': 'float',
             'gender': 'int',
-            'hypertension': 'int',
-            'heart_disease': 'int',
             'work_type': 'int',
             'Residence_type': 'int',
-            'smoking_status': 'int'
+            'smoking_status': 'int',
+            'hypertension': 'int',
+            'heart_disease': 'int'
         })
         # Transform data
         user_transformed = preprocessor.transform(user_data)
