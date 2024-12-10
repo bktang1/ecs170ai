@@ -97,6 +97,7 @@ def input_form_page():
         "Smokes": 2,
         "Unknown": 3
     }[smoking_status_option]
+    
 
     # Save inputs
     user_data = pd.DataFrame({
@@ -104,13 +105,11 @@ def input_form_page():
         'age': [age],
         'hypertension': [hypertension],
         'heart_disease': [heart_disease],
-        #ever_married
         'work_type': [work_type],
         'Residence_type': [Residence_type],
         'avg_glucose_level': [avg_glucose_level],
         'bmi': [bmi],
         'smoking_status': [smoking_status]
-        #stroke
     })
 
     if st.button("Submit"):
@@ -151,7 +150,7 @@ def risk_analysis_page():
 
         # Transform data
         user_transformed = preprocessor.transform(user_data)
-        st.write("Transformed user data:", user_transformed)
+        #st.write("Transformed user data:", user_transformed)
 
     except Exception as e:
         st.error(f"Error during transformation: {e}")
@@ -162,7 +161,7 @@ def risk_analysis_page():
         return'''
     
     # Debugging: Log the transformed data
-    st.write("Transformed user data:", user_transformed)
+    #st.write("Transformed user data:", user_transformed)
 
     #    user_transformed = preprocessor.transform(user_data)
     user_transformed_df = pd.DataFrame(user_transformed.toarray() if hasattr(user_transformed, 'toarray') else user_transformed)
