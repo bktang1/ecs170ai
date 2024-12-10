@@ -104,11 +104,11 @@ def input_form_page():
         'avg_glucose_level': [avg_glucose],
         'bmi': [bmi],
         'gender': [gender],
-        'hypertension': [hypertension],
-        'heart_disease': [heart_disease],
         'work_type': [work_type],
         'Residence_type': [Residence_type],
-        'smoking_status': [smoking_status]
+        'smoking_status': [smoking_status],
+        'hypertension': [hypertension],
+        'heart_disease': [heart_disease]
     })
 
     if st.button("Submit"):
