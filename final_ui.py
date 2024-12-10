@@ -166,27 +166,30 @@ def recommendation_page():
     prediction_proba = st.session_state.get('prediction_proba', None)
     prediction = st.session_state.get('prediction', None)
     st.title("Personalized Health Plan")
+    user_data = st.session_state.user_data
     if prediction == 1:
         st.write("Based on your response, here are some recommendations to lower your stroke risk.")
-        user_data = st.session_state.user_data
         st.subheader("Lifestyle Recommendations")
         if user_data['bmi'][0] > 25:
             st.write("Maintain a healthy weight by exercising regularly.")
+        else:
+            st.write("Great job maintaining a healthy weight! Keep it up with regular exercise and a balanced lifestyle.")
         if user_data['avg_glucose_level'][0] > 140:
             st.write("Monitor glucose levels and reduce sugar intake.")
-        st.subheader("Dietary Changes")
+        else:
+            st.write("Your glucose levels are within a healthy range. Continue following a nutritious diet.")
+        st.subheader("Dietary Guidance")
         st.write("Adopt a balanced diet with fruits, vegetables, and whole grains.")
         st.subheader("Medical Advice")
         st.write("Consult with a healthcare provider for regular check-ups.")
     else:
         st.write("Based on your response, here are some recommendations to lower your stroke risk.")
-        user_data = st.session_state.user_data
         st.subheader("Lifestyle Recommendations")
         if user_data['bmi'][0] > 25:
             st.write("Maintain a healthy weight by exercising regularly.")
         if user_data['avg_glucose_level'][0] > 140:
             st.write("Monitor glucose levels and reduce sugar intake.")
-        st.subheader("Dietary Changes")
+        st.subheader("Dietary Guidance")
         st.write("Adopt a balanced diet with fruits, vegetables, and whole grains.")
         st.subheader("Medical Advice")
         st.write("Consult with a healthcare provider for regular check-ups.")
