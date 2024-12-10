@@ -119,42 +119,30 @@ def input_form_page():
 def risk_analysis_page():
     st.title("Stroke Risk Analysis")
     user_data = st.session_state.user_data
-
-    # Debugging: Log initial data and types
-    st.write("User data before validation:", user_data)
-    st.write("User data column types:", user_data.dtypes)
-
-    # Filter required columns
+    
+    # Preprocess user input
+    user_data = user_data.reindex(columns=['age', 'avg_glucose_level', 'bmi', 'gender', 'hypertension', 'heart_disease', 'work_type', 'Residence_type', 'smoking_status'])
+    user_data = user_data.fillna(0)  # Fill NaN values with 0 or other suitable
     required_columns = ['age', 'avg_glucose_level', 'bmi', 'gender', 'hypertension', 'heart_disease', 'work_type', 'Residence_type', 'smoking_status']
-    user_data = user_data[required_columns]
+    user_data = user_data[required_columns]  # Remove any extraneous columns
+    user_data = user_data.iloc[:, 1:]
 
-    # Cast to appropriate data types
-    user_data = user_data.astype({
-        'age': float,
-        'avg_glucose_level': float,
-        'bmi': float,
-        'gender': int,
-        'hypertension': int,
-        'heart_disease': int,
-        'work_type': int,
-        'Residence_type': int,
-        'smoking_status': int
-    })
-
-    # Fill missing values
-    user_data = user_data.fillna(0)
-
-    # Debugging: Log final prepared data
-    st.write("Prepared user data for transformation:", user_data)
+    # Debugging: Log the state of user_data
+    st.write("User data before preprocessing:", user_data)
 
     # Preprocess user input
     try:
         user_transformed = preprocessor.transform(user_data)
-        user_transformed_df = pd.DataFrame(user_transformed, columns=preprocessor.get_feature_names_out())
     except Exception as e:
         st.error(f"Error during transformation: {e}")
         return
+    
+    # Debugging: Log the transformed data
+    st.write("Transformed user data:", user_transformed)
 
+    #    user_transformed = preprocessor.transform(user_data)
+    user_transformed_df = pd.DataFrame(user_transformed.toarray() if hasattr(user_transformed, 'toarray') else user_transformed)
+    
     # Predict stroke risk
     prediction_proba = model.predict_proba(user_transformed_df)[:, 1]
     prediction = (prediction_proba >= 0.3).astype(int)
