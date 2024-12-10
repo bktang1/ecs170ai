@@ -70,7 +70,7 @@ def input_form_page():
 
     age = st.number_input("Age", min_value=0, max_value=120, value=20, step=1)
     bmi = st.number_input("Body Mass Index (BMI)", min_value=0.0, max_value=100.0, value=25.0, step=0.1)
-    avg_glucose_level = st.number_input("Average Glucose Level (mg/dL)", min_value=0.0, max_value=500.0, value=100.0, step=0.1)
+    avg_glucose = st.number_input("Average Glucose Level (mg/dL)", min_value=0.0, max_value=500.0, value=100.0, step=0.1)
 
     hypertension_option = st.selectbox("History of Hypertension (High Blood Pressure)", ["No", "Yes"])
     hypertension = 0 if hypertension_option == "No" else 1
@@ -97,18 +97,17 @@ def input_form_page():
         "Smokes": 2,
         "Unknown": 3
     }[smoking_status_option]
-    
 
     # Save inputs
     user_data = pd.DataFrame({
-        'gender': [gender],
         'age': [age],
+        'avg_glucose_level': [avg_glucose],
+        'bmi': [bmi],
+        'gender': [gender],
         'hypertension': [hypertension],
         'heart_disease': [heart_disease],
         'work_type': [work_type],
         'Residence_type': [Residence_type],
-        'avg_glucose_level': [avg_glucose_level],
-        'bmi': [bmi],
         'smoking_status': [smoking_status]
     })
 
@@ -126,8 +125,8 @@ def risk_analysis_page():
     user_data = user_data.fillna(0)  # Fill NaN values with 0 or other suitable
     required_columns = ['age', 'avg_glucose_level', 'bmi', 'gender', 'hypertension', 'heart_disease', 'work_type', 'Residence_type', 'smoking_status']
     user_data = user_data[required_columns]  # Remove any extraneous columns
-
-    '''
+    st.write("Expected columns:", preprocessor.get_feature_names_out())
+    st.write("Provided columns:", user_data.columns.tolist())
     # Debugging: Log the state of user_data
     st.write("User data before preprocessing:", user_data)
 
@@ -155,18 +154,17 @@ def risk_analysis_page():
 
     except Exception as e:
         st.error(f"Error during transformation: {e}")
-    try:
+    '''try:
         user_transformed = preprocessor.transform(user_data)
     except Exception as e:
         st.error(f"Error during transformation: {e}")
-        return
+        return'''
     
     # Debugging: Log the transformed data
     st.write("Transformed user data:", user_transformed)
-    '''
 
-    #user_transformed = preprocessor.transform(user_data)
-    user_transformed_df = pd.DataFrame(user_data.toarray() if hasattr(user_data, 'toarray') else user_data)
+    #    user_transformed = preprocessor.transform(user_data)
+    user_transformed_df = pd.DataFrame(user_transformed.toarray() if hasattr(user_transformed, 'toarray') else user_transformed)
     
     # Predict stroke risk
     prediction_proba = model.predict_proba(user_transformed_df)[:, 1]
