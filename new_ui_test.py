@@ -217,24 +217,53 @@ def recommendation_page():
         st.write("Consult with a healthcare provider for regular check-ups.")
 
 def info_page():
-    st.title("Information Section")
+    st.markdown(
+        """
+        <h1 style="text-align: center; color: #4CAF50;">Project Overview</h1>
+        """,
+        unsafe_allow_html=True
+    )
+
+    st.markdown("## Vitaly: An AI-driven Tool for Stroke Risk Assessment")
+    st.write(
+        "Vitaly is an AI-driven tool designed to assess stroke risk and provide personalized health recommendations. "
+        "By combining advanced machine learning techniques with an intuitive user interface, it empowers users to proactively manage their health. "
+        "The system predicts stroke risk based on key metrics like BMI, glucose levels, and hypertension, aiming to minimize false negatives and promote early intervention."
+    )
+
+    st.markdown("## Key AI Methodologies and Techniques")
+    st.write(
+        "- **Data Preprocessing**: Addressed missing values, performed feature selection, and engineered categorical variables into numerical formats.\n"
+        "- **Model Development**:\n"
+        "  - Transitioned from Decision Trees to Random Forests for better accuracy and handling of non-linear interactions.\n"
+        "  - Addressed class imbalance using SMOTE and class weighting, enhancing the model's ability to predict rare stroke cases.\n"
+        "  - Conducted hyperparameter tuning to optimize recall and maintain precision.\n"
+        "- **User Interface**: Developed an interactive Streamlit app featuring intuitive input forms, risk visualizations, and personalized recommendations."
+    )
+
+    st.markdown("## Challenges Faced and Resolutions")
+    st.write(
+        "- **Class Imbalance**: Mitigated through SMOTE and class weighting, ensuring minority classes were adequately represented.\n"
+        "- **Missing and Irrelevant Data**: Imputed missing BMI values and removed features like smoking status that lacked significant predictive power.\n"
+        "- **Balancing Recall and Precision**: Prioritized recall to avoid false negatives, aligning with the project’s ethical focus on minimizing risk.\n"
+        "- **User Engagement**: Enhanced UI interactivity with animations and a clear, color-coded risk visualization system."
+    )
+
 
 
     col1, col2 = st.columns(2)
-
     # Back Button
     with col1:
         if st.button("Back"):
             if "history" in st.session_state and st.session_state.history:
                 st.session_state.page = st.session_state.history.pop()  # Navigate back to the previous page
-
     # URL Button
     with col2:
         st.markdown(
             """
             <a href="https://docs.google.com/document/d/1orC6raJHEq1lT5pdLkbE8osIPRaae67lzqd7nSONVMw/edit?tab=t.0" target="_blank">
                 <button style="background-color:#007BFF; color:white; border:none; padding:10px 20px; border-radius:5px; font-size:16px; cursor:pointer;">
-                    View More Info
+                    Additional Information
                 </button>
             </a>
             """,
