@@ -250,10 +250,66 @@ def info_page():
         "- **Model and UI compatibility**: The model was expecting more inputs than the UI was providing. We fixed this by changing how the preprocessor was working and removing the one-hot encoding we had initially put in the model."
     )
 
-    st.image(
-        "method.png", 
-        caption="Methodology",
-        use_column_width=True
+    st.markdown("## Contribution")
+    st.write(
+        "Diya\n"
+        "I was responsible for the entire model-building process (handling missing values, feature engineering "
+        "(categorical transformations, feature selection, and removal of low-correlation variables), balancing the "
+        "dataset using techniques like SMOTE and class weights, hyperparameter tuning, and implementing the Random "
+        "Forest model to achieve high recall and precision. I also conducted data preprocessing/cleaning as well as "
+        "EDA in regards to the correlation matrices and findings. I was also a significant contributor to the slides "
+        "and the (now optional) final paper, as well as the proposal and the check-in. In addition, Priyanshi and I took "
+        "on more of a “team lead” position within the project group, and helped keep the group on track over the quarter "
+        "and delegated tasks as we saw fit.\n"
+    )
+
+    st.write(
+        "Ken\n"
+        "I helped with the feature engineering, and helped Bill with the UI integration on Streamlit.\n"
+    )
+
+    st.write(
+        "Chris\n"
+        "I helped with the project check-in, feature engineering, and presentation.\n"
+    )
+
+    st.write(
+        "Bill\n"
+        "I was responsible for conducting the initial literature review, which helped us understand the background of our "
+        "project. I also worked on portions of the data preprocessing to ensure it was ready for analysis and compatible "
+        "with our model. Additionally, I focused on the user interface integration with our trained model on Streamlit to "
+        "allow users to interact with our model and visualize the results.\n"
+    )
+
+    st.write(
+        "Priyanshi\n"
+        "Diya and I took over more of a project manager role throughout the quarter and helped ensure that tasks were "
+        "being completed and done. I also was responsible for our project proposal (including a literature review and "
+        "formatting things into markdown), was a significant contributor to the project check-in, was an active "
+        "contributor to finding ideas and project ideas for our team to pivot towards, and helped with the presentation.\n"
+    )
+
+    st.write(
+        "Maithreyi\n"
+        "I was primarily responsible for data preprocessing and conducting exploratory data analysis (EDA) on the dataset. "
+        "This involved analyzing skewness through histograms, pair plots, correlation matrices, and Q-Q plots, as well as "
+        "creating multiple graphs to visualize key insights. Additionally, I contributed to the planning of the project's "
+        "implementation, the proposal, and the project check-ins. I also assisted in preparing the slides and creating other "
+        "necessary materials for the presentation.\n"
+    )
+
+    st.write(
+        "Nissi\n"
+        "Worked primarily on data preparation, identifying, evaluating, and preprocessing datasets to ensure optimal training "
+        "for our model. I helped with the project proposal, check-in, and project planning stages, and also conducted a "
+        "literature review to strengthen our methodology.\n"
+    )
+
+    st.write(
+        "Sheda\n"
+        "I assisted with the UI, the final paper, the presentation, the proposal, and the check-in. I also made the Heatmap. "
+        "I assisted in the original development of the project idea, and helped come up with new ideas when our original one "
+        "proved too challenging.\n"
     )
 
     col1, col2 = st.columns(2)
