@@ -246,17 +246,16 @@ def info_page():
         "- **Class Imbalance**: Mitigated through SMOTE and class weighting, ensuring minority classes were adequately represented.\n"
         "- **Missing and Irrelevant Data**: Imputed missing BMI values and removed features like smoking status that lacked significant predictive power.\n"
         "- **Balancing Recall and Precision**: Prioritized recall to avoid false negatives, aligning with the project’s ethical focus on minimizing risk.\n"
-        "- **User Engagement**: Enhanced UI interactivity with animations and a clear, color-coded risk visualization system."
+        "- **User Engagement**: Enhanced UI interactivity with animations and a clear, color-coded risk visualization system.\n"
+        "- **Model and UI compatibility**: The model was expecting more inputs than the UI was providing. We fixed this by changing how the preprocessor was working and removing the one-hot encoding we had initially put in the model."
     )
-
 
 
     col1, col2 = st.columns(2)
     # Back Button
     with col1:
         if st.button("Back"):
-            if "history" in st.session_state and st.session_state.history:
-                st.session_state.page = st.session_state.history.pop()  # Navigate back to the previous page
+            st.session_state.page = "welcome"
     # URL Button
     with col2:
         st.markdown(
