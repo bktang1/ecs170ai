@@ -127,6 +127,7 @@ def risk_analysis_page():
     required_columns = ['age', 'avg_glucose_level', 'bmi', 'gender', 'hypertension', 'heart_disease', 'work_type', 'Residence_type', 'smoking_status']
     user_data = user_data[required_columns]  # Remove any extraneous columns
 
+    '''
     # Debugging: Log the state of user_data
     st.write("User data before preprocessing:", user_data)
 
@@ -150,21 +151,22 @@ def risk_analysis_page():
 
         # Transform data
         user_transformed = preprocessor.transform(user_data)
-        #st.write("Transformed user data:", user_transformed)
+        st.write("Transformed user data:", user_transformed)
 
     except Exception as e:
         st.error(f"Error during transformation: {e}")
-    '''try:
+    try:
         user_transformed = preprocessor.transform(user_data)
     except Exception as e:
         st.error(f"Error during transformation: {e}")
-        return'''
+        return
     
     # Debugging: Log the transformed data
-    #st.write("Transformed user data:", user_transformed)
+    st.write("Transformed user data:", user_transformed)
+    '''
 
-    #    user_transformed = preprocessor.transform(user_data)
-    user_transformed_df = pd.DataFrame(user_transformed.toarray() if hasattr(user_transformed, 'toarray') else user_transformed)
+    #user_transformed = preprocessor.transform(user_data)
+    user_transformed_df = pd.DataFrame(user_data.toarray() if hasattr(user_data, 'toarray') else user_data)
     
     # Predict stroke risk
     prediction_proba = model.predict_proba(user_transformed_df)[:, 1]
