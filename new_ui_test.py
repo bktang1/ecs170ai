@@ -69,6 +69,8 @@ def welcome_page():
     )
     if st.button("Start Assessment"):
         st.session_state.page = "input_form"
+    elif st.button("Info"):
+        st.session_state.page = "info"
 
 # Input Form Page
 def input_form_page():
@@ -209,6 +211,8 @@ def recommendation_page():
         st.subheader("Medical Advice")
         st.write("Consult with a healthcare provider for regular check-ups.")
 
+def info_page():
+    st.title("Information Section")
 
 
 # Main Application Logic
@@ -221,6 +225,8 @@ def main():
     
     if st.session_state.page == "welcome":
         welcome_page()
+    elif st.session_state.page == "info":
+        info_page()
     elif st.session_state.page == "input_form":
         input_form_page()
     elif st.session_state.page == "risk_analysis":
