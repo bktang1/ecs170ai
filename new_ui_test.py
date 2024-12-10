@@ -198,8 +198,12 @@ def recommendation_page():
         st.subheader("Lifestyle Recommendations")
         if user_data['bmi'][0] > 25:
             st.write("Maintain a healthy weight by exercising regularly.")
+        else:
+            st.write("Great job maintaining a healthy weight! Keep it up with regular exercise and a balanced lifestyle.")
         if user_data['avg_glucose_level'][0] > 140:
             st.write("Monitor glucose levels and reduce sugar intake.")
+        else:
+            st.write("Your glucose levels are within a healthy range. Continue following a nutritious diet.")
         st.subheader("Dietary Guidance")
         st.write("Adopt a balanced diet with fruits, vegetables, and whole grains.")
         st.subheader("Medical Advice")
