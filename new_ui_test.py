@@ -74,7 +74,7 @@ def welcome_page():
             st.session_state.page = "input_form"
     
     with col2:
-        if st.button("Info"):
+        if st.button("Information"):
             st.session_state.page = "info"
 
 # Input Form Page
@@ -218,6 +218,29 @@ def recommendation_page():
 
 def info_page():
     st.title("Information Section")
+
+
+    col1, col2 = st.columns(2)
+
+    # Back Button
+    with col1:
+        if st.button("Back"):
+            if "history" in st.session_state and st.session_state.history:
+                st.session_state.page = st.session_state.history.pop()  # Navigate back to the previous page
+
+    # URL Button
+    with col2:
+        st.markdown(
+            """
+            <a href="https://docs.google.com/document/d/1orC6raJHEq1lT5pdLkbE8osIPRaae67lzqd7nSONVMw/edit?tab=t.0" target="_blank">
+                <button style="background-color:#007BFF; color:white; border:none; padding:10px 20px; border-radius:5px; font-size:16px; cursor:pointer;">
+                    View More Info
+                </button>
+            </a>
+            """,
+            unsafe_allow_html=True
+        )
+
 
 
 # Main Application Logic
