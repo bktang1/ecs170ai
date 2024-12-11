@@ -168,7 +168,7 @@ def risk_analysis_page():
     
     # Predict stroke risk
     prediction_proba = model.predict_proba(user_transformed_df)[:, 1]
-    prediction = (prediction_proba >= 0.3).astype(int)
+    prediction = (prediction_proba >= 0.2).astype(int)
 
     st.write("### Prediction:")
     if prediction[0] == 1:
